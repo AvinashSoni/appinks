@@ -1,0 +1,27 @@
+{% extends "index.html" %}
+{% block content %}
+
+{% for question in object_list %}
+<h3> <a href="{% url 'mathematics:detail' question.id %}">{{ question.Question }}</a></h3>
+<div class = "post_meta">
+    on {{ question.date}}
+
+</div>
+{% for option in question.option_set.all %}
+{{ i  }}
+
+{{ i }}
+
+
+<div class = "post_body">
+    <p>{{ option.Option_Number }}{{ option.Option|safe|linebreaks}}</p>
+</div>
+{% endfor %}
+{% for solution in question.solution_set.all %}
+<div class = "post_body">
+    <p>{{ solution.Solution|safe|linebreaks}}</p>
+</div>
+
+{% endfor %}
+{% endfor %}
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends "index.html" %}
+{% block content %}
+
+<p>You searched for: <strong>{{ query }}</strong></p>
+
+{% if questions %}
+    <p>Found {{ questions|length }} question{{ question|pluralize }}.</p>
+    <ul>
+        {% for question in questions %}
+        <li>{{ question.Question }}</li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No books matched your search criteria.</p>
+{% endif %}
+{% endblock %}

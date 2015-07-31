@@ -1,0 +1,17 @@
+{% extends 'index.html' %}
+{% load i18n %}
+{% block title %}{% trans "All Quizzes" %}{% endblock %}
+
+{% block content %}
+<h1>{% trans "List of Mathematics Subcategory" %}</h1>
+        {% for subcategory in subcategory_list %}
+        
+<table border="1" style="width:100%">
+	<td>
+  			
+			 <tr> <a href="/multichoice/Physics/{{ subcategory.sub_category }}">{{ subcategory.sub_category }}</a><tr>
+	</td>
+</table>		 	
+        {% endfor %}
+
+{% endblock %}

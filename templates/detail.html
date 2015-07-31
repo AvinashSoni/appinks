@@ -1,0 +1,17 @@
+{% extends "index.html" %}
+{% block content %}
+
+<h1>{{ question.Question }}</h1>
+
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+<form action="{% url 'mathematics:submit' question.id %}" method="post">
+{% csrf_token %}
+{% for option in question.option_set.all %}
+    <input type="radio" name="option" id="option{{ forloop.counter }}" value="{{ option.id }}" />
+    <label for="option{{ forloop.counter }}">{{ option.Option }}</label><br />
+{% endfor %}
+<input type="submit" value="Submit" />
+</form>
+
+{% endblock %}

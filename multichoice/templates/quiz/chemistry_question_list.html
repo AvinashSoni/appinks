@@ -1,0 +1,14 @@
+{% extends 'index.html' %}
+{% load i18n %}
+{% block title %}{% trans "All Quizzes" %}{% endblock %}
+
+{% block content %}
+<h1>{% trans "List of Chemistry Subcategory" %}</h1>
+
+        {% for subcategory in subcategory_list %}
+
+  			
+			  <h2>{{ subcategory.sub_category }}</h2>
+        {% endfor %}
+
+{% endblock %}

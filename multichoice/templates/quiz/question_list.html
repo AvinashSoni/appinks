@@ -1,0 +1,20 @@
+{% extends 'index.html' %}
+{% load i18n %}
+{% block title %}{% trans "All Quizzes" %}{% endblock %}
+
+{% block content %}
+<h1>{% trans "List of MCQuestion Category" %}</h1>
+
+        {% for category in category_list %}
+
+<table border="1" style="width:100%">
+  <tr>
+    <td><a href="/multichoice/{{ category.category }}"> {{ category.category }} </a></td>
+
+  </tr>
+</table>
+			  
+
+        {% endfor %}
+
+{% endblock %}

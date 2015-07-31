@@ -1,0 +1,26 @@
+{% extends 'index.html' %}
+{% load i18n %}
+{% block title %}{% trans "All Quizzes" %}{% endblock %}
+
+{% block content %}
+<h1>{% trans "List of MCQuestions" %}</h1>
+
+        {% for mcquestion in question_list %}
+
+  			
+			  <h2>{{ mcquestion.category }}</h2>
+			  <h3>{{ mcquestion.sub_category }}</h3>
+			  <p>{{ mcquestion.content }}</p>
+              <img src="{{ mcquestion.figure.url }}" alt="{{ mcquestion.content }}" />
+			  
+			  {% for answer in mcquestion.answer_set.all %}
+
+  			
+			  <p>{{ answer.content }}</p>
+        {% endfor %}
+
+<p>{{ mcquestion.explanation }}</p>
+
+        {% endfor %}
+
+{% endblock %}

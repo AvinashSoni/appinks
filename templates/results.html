@@ -1,0 +1,15 @@
+{% extends "index.html" %}
+{% block content %}
+{{ selected_option }}
+<h1>{{ question.Question }}</h1>
+<ul>
+{% for option in question.option_set.all %}
+    <li> {{ option.Option }}</li>
+{% endfor %}
+</ul>
+{% for solution in question.solution_set.all %}
+<div class = "post_body">
+    <p>{{ solution.Solution|safe|linebreaks}}</p>
+</div>
+{% endfor %}
+{% endblock %}
